@@ -21,9 +21,21 @@ public class SignUpRequestDto {
     private String password;
 
     @NotBlank
-    private String studentNum;
+    private String career;
 
     @NotBlank
+    private String position;
+
     private String name;
+
+    private String age;
+
+    private String sex;
+
+    private String team;
+
+    private String height;
+
+    private String weight; 
 
 }
