@@ -1,14 +1,18 @@
 package com.hufs.ice_back.dto;
 
 import java.util.ArrayList;
-
-
 import java.util.List;
 
 import com.hufs.ice_back.entity.UserEntity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserList {
 
     private String email;
@@ -24,8 +28,8 @@ public class UserList {
 
     public static List<UserList> getList(List<UserEntity> userEntitylist) {
         List<UserList> list = new ArrayList<>();
-        for (UserEntity userEntity: userEntitylist){
-            UserList userListItem = new UserList(userEntity);
+        for (UserEntity userEntityViewlist: userEntitylist){
+            UserList userListItem = new UserList(userEntityViewlist);
             list.add(userListItem);
         }
         return list;
