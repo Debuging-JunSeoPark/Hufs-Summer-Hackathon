@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import { Link } from 'react-router-dom';
 
 function Main() {
   return (
@@ -44,9 +45,11 @@ function Main() {
                 원하는 시간대에 경기를 <br />
                 추천 받아 보세요
               </div>
-              <div className="justify-center items-center px-6 py-4 mt-16 max-w-full text-2xl font-semibold leading-6 text-white whitespace-nowrap bg-indigo-500 rounded-3xl max-md:px-5 max-md:mt-10">
-                매치업
-              </div>
+              <Link to="/matchup">
+                <div className="justify-center items-center px-6 py-4 mt-16 max-w-full text-2xl font-semibold leading-6 text-white whitespace-nowrap bg-indigo-500 rounded-3xl max-md:px-5 max-md:mt-10">
+                  매치업
+                </div>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">

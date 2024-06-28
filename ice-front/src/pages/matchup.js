@@ -1,15 +1,27 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Header from '../components/Header';
 
 const Matchup = () => {
+  const [inputs, setInputs] = useState([{ id: 1 }]);
+  const [nextId, setNextId] = useState(2);
+
+  const addInput = () => {
+    setInputs([...inputs, { id: nextId }]);
+    setNextId(nextId + 1);
+  };
+
   return (
-    <div className="flex flex-col justify-center h-screen bg-white">
-      <Header></Header>
+    <div className="flex flex-col justify-center min-h-screen bg-white">
+      <Header />
       <div className="mt-1.5 w-full max-md:pr-5 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          <div className="flex flex-col w-[20%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow pt-20 pb-7 w-full bg-white max-md:mt-10 max-md:max-w-full">
-              <div className="flex flex-col pr-4 pl-9 max-md:pl-5 max-md:max-w-full">
+          <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow pt-20 pb-7 w-full bg-white max-md:mt-10 max-md:max-w-full bg-gradient-to-b from-slate-100 to-slate-300">
+              <div
+                className="flex flex-col pr-4 pl-9 max-md:pl-5 max-md:max-w-full"
+                id="filter_list"
+              >
                 <div className="text-5xl font-semibold leading-6 text-black max-md:max-w-full max-md:text-4xl">
                   매치업
                 </div>
@@ -29,25 +41,43 @@ const Matchup = () => {
                     시작 시간
                   </div>
                 </div>
-                <div className="flex gap-5 mt-8 max-md:flex-wrap max-md:pr-5">
-                  <div className="shrink-0 h-12 bg-zinc-300 w-[170px]" />
-                  <div className="shrink-0 h-12 bg-zinc-300 w-[170px]" />
-                </div>
-                <div className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
+                <ui className="flex-row gap-5 mt-8 max-md:flex-wrap max-md:pr-5">
+                  {inputs.map((input) => (
+                    <div
+                      key={input.id}
+                      className="flex gap-5 mt-8 max-md:flex-wrap max-md:pr-5"
+                    >
+                      <input
+                        name={`${input.id}`}
+                        type="date"
+                        className="justify-center px-4 py-2.5 rounded-lg w-full h-12 bg-zinc-300 w-[170px]"
+                      />
+                      <input
+                        name={`${input.id}`}
+                        type="time"
+                        className="justify-center px-4 py-2.5 rounded-lg w-full h-12 bg-zinc-300 w-[170px]"
+                      />
+                    </div>
+                  ))}
+                </ui>
+                <button
+                  onClick={addInput}
+                  className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                >
                   +
-                </div>
+                </button>
               </div>
-              <div className="justify-center items-center self-center px-4 py-2.5 mt-80 ml-2.5 max-w-full text-2xl font-bold leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 w-[426px] max-md:px-5 max-md:mt-10">
+              <div className="justify-center items-center self-center px-4 py-2.5 mt-20 ml-2.5 max-w-full text-2xl font-bold leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 w-[426px] max-md:px-5 max-md:mt-10">
                 맞춤 검색 &gt;
               </div>
             </div>
           </div>
-          <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col ml-5 w-[80%] max-md:ml-0 max-md:w-full">
             <div className="flex overflow-hidden relative flex-col justify-center items-center self-stretch px-16 py-20 my-auto min-h-[874px] max-md:px-5 max-md:mt-10 max-md:max-w-full">
               <img
                 loading="lazy"
                 srcSet="select_position.png"
-                className="object-cover absolute inset-0 size-full"
+                className="object-cover absolute inset-0 w-full h-full"
                 alt="select_position.png"
               />
               <div className="flex relative flex-col items-center mt-1 max-w-full w-[636px]">
