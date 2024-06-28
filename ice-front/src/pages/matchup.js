@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Header from '../components/Header';
+import { Link } from 'react-router-dom';
 
 const Matchup = () => {
   const [inputs, setInputs] = useState([{ id: 1 }]);
@@ -12,7 +13,7 @@ const Matchup = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center min-h-screen bg-white">
+    <div className="flex flex-col w-screen h-screen bg-white ml-[calc(50%_-_50vw)]">
       <Header />
       <div className="mt-1.5 w-full max-md:pr-5 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
@@ -50,12 +51,12 @@ const Matchup = () => {
                       <input
                         name={`${input.id}`}
                         type="date"
-                        className="justify-center px-4 py-2.5 rounded-lg w-full h-12 bg-zinc-300 w-[170px]"
+                        className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white max-md:px-5"
                       />
                       <input
                         name={`${input.id}`}
                         type="time"
-                        className="justify-center px-4 py-2.5 rounded-lg w-full h-12 bg-zinc-300 w-[170px]"
+                        className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white max-md:px-5"
                       />
                     </div>
                   ))}
@@ -67,9 +68,11 @@ const Matchup = () => {
                   +
                 </button>
               </div>
-              <div className="justify-center items-center self-center px-4 py-2.5 mt-20 ml-2.5 max-w-full text-2xl font-bold leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 w-[426px] max-md:px-5 max-md:mt-10">
-                맞춤 검색 &gt;
-              </div>
+              <Link to={'/matchup_result'}>
+                <div className="justify-center items-center self-center px-4 py-2.5 mt-20 ml-2.5 max-w-full text-2xl font-bold leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 w-[426px] max-md:px-5 max-md:mt-10">
+                  맞춤 검색 &gt;
+                </div>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col ml-5 w-[80%] max-md:ml-0 max-md:w-full">

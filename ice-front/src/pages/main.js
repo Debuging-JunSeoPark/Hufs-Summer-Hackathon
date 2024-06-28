@@ -40,7 +40,7 @@ function Main() {
                 className="self-stretch w-full aspect-[1.49]"
                 alt="matchup.png"
               />
-              <div className="mt-20 text-lg leading-8 text-center text-gray-600 max-md:mt-10">
+              <div className="mt-16 text-lg leading-8 text-center text-gray-600 max-md:mt-10">
                 개인 일정을 등록하여 <br />
                 원하는 시간대에 경기를 <br />
                 추천 받아 보세요
@@ -65,9 +65,11 @@ function Main() {
                 등록하여 게임을 <br />
                 진행 해 보세요
               </div>
-              <div className="justify-center px-9 py-4 mt-16 text-2xl font-semibold leading-6 text-white bg-indigo-500 rounded-3xl max-md:px-8 max-md:mt-10">
-                경기 등록
-              </div>
+              <Link to={'/post_match'}>
+                <div className="justify-center px-9 py-4 mt-16 text-2xl font-semibold leading-6 text-white bg-indigo-500 rounded-3xl max-md:px-8 max-md:mt-10">
+                  경기 등록
+                </div>
+              </Link>
             </div>
           </div>
         </div>
