@@ -185,6 +185,10 @@ const PostMatch = () => {
                                   <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
                                     <input
                                       type="checkbox"
+                                      value={leftFielder}
+                                      onChange={(e) =>
+                                        setLeftfielder(e.target.value)
+                                      }
                                       className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                     ></input>
                                   </div>
@@ -195,6 +199,10 @@ const PostMatch = () => {
                                     <div className="flex justify-center items-center self-end px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
                                       <input
                                         type="checkbox"
+                                        value={shortstop}
+                                        onChange={(e) =>
+                                          setShortstop(e.target.value)
+                                        }
                                         className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                       ></input>
                                     </div>
@@ -204,6 +212,10 @@ const PostMatch = () => {
                                     <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
                                       <input
                                         type="checkbox"
+                                        value={thirdBase}
+                                        onChange={(e) =>
+                                          setThirdBase(e.target.value)
+                                        }
                                         className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                       ></input>
                                     </div>
@@ -218,6 +230,10 @@ const PostMatch = () => {
                                   <div className="flex justify-center items-center px-2 ml-3.5 bg-gray-100 rounded-2xl h-[37px] w-[37px] max-md:ml-2.5">
                                     <input
                                       type="checkbox"
+                                      value={centerFielder}
+                                      onChange={(e) =>
+                                        setCenterFielder(e.target.value)
+                                      }
                                       className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                     ></input>
                                   </div>
@@ -228,6 +244,10 @@ const PostMatch = () => {
                                     <div className="flex justify-center items-center px-2 mt-5 ml-2.5 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
                                       <input
                                         type="checkbox"
+                                        value={rightFielder}
+                                        onChange={(e) =>
+                                          setRightFielder(e.target.value)
+                                        }
                                         className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                       ></input>
                                     </div>
@@ -238,6 +258,10 @@ const PostMatch = () => {
                                   <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
                                     <input
                                       type="checkbox"
+                                      value={secondBase}
+                                      onChange={(e) =>
+                                        setSecondBase(e.target.value)
+                                      }
                                       className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                     ></input>
                                   </div>
@@ -249,6 +273,10 @@ const PostMatch = () => {
                                       <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
                                         <input
                                           type="checkbox"
+                                          value={pitcher}
+                                          onChange={(e) =>
+                                            setPitcher(e.target.value)
+                                          }
                                           className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                         ></input>
                                       </div>
@@ -260,6 +288,10 @@ const PostMatch = () => {
                                       <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
                                         <input
                                           type="checkbox"
+                                          value={firstBase}
+                                          onChange={(e) =>
+                                            setFirstbase(e.target.value)
+                                          }
                                           className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
                                         ></input>
                                       </div>
@@ -272,7 +304,12 @@ const PostMatch = () => {
                               </div>
                             </div>
                           </div>
-                          <input type='checkbox' className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"></input>
+                          <input
+                            type="checkbox"
+                            value={catcher}
+                            onChange={(e) => setCatcher(e.target.value)}
+                            className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                          ></input>
                           <div className="self-center mt-32 text-xl font-semibold leading-6 text-black max-md:mt-10">
                             포수
                           </div>
