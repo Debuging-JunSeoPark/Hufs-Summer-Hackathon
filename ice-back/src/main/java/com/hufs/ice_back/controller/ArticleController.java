@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hufs.ice_back.dto.request.GetFilterArticleRequestDto;
 import com.hufs.ice_back.dto.request.PostArticleRequestDto;
 import com.hufs.ice_back.service.ArticleService;
 import com.hufs.ice_back.dto.response.PostArticleResponseDto;
@@ -46,6 +47,12 @@ public class ArticleController {
     @GetMapping("/list")
     public ResponseEntity<? super GetArticleListResponseDto> getArticleList(){
         ResponseEntity<? super GetArticleListResponseDto> response = articleService.getArticleList();
+        return response;
+    }
+
+    @PostMapping("/list/filtered")
+    public ResponseEntity<? super GetArticleListResponseDto> getFilteredArticleList(@RequestBody GetFilterArticleRequestDto filterDto) {
+        ResponseEntity<? super GetArticleListResponseDto> response = articleService.getFilteredArticleList(filterDto);
         return response;
     }
 }
