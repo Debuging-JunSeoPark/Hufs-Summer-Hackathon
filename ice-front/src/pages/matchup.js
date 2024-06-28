@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
+import Area from '../utils/regions';
 
 const Matchup = () => {
   const [inputs, setInputs] = useState([{ id: 1 }]);
@@ -31,9 +32,7 @@ const Matchup = () => {
                   참여 가능한 경기를 일괄적으로 보여드립니다. <br />
                   원하는 장소와 시간을 체크해 주세요.
                 </div>
-                <div className="justify-center items-center px-4 py-2.5 mt-20 text-sm font-bold leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                  지역 선택 &gt;
-                </div>
+                <Area></Area>
                 <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 text-slate-700 max-md:flex-wrap max-md:max-w-full">
                   <div className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 max-md:px-5">
                     날짜

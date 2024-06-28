@@ -310,7 +310,7 @@ const Area = () => {
     regions.find((area) => area.name === selectedArea)?.subArea || [];
 
   return (
-    <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 text-slate-700 max-md:flex-wrap max-md:max-w-full">
+    <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 bg-white text-slate-700 max-md:flex-wrap max-md:max-w-full">
       <select
         value={selectedArea}
         onChange={handleAreaChange}
