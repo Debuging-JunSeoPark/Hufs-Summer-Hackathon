@@ -1,10 +1,5 @@
 package com.hufs.ice_back.service.implement;
 
-import java.time.LocalDateTime;
-import java.time.Period;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +7,9 @@ import com.hufs.ice_back.dto.request.PostArticleRequestDto;
 import com.hufs.ice_back.dto.response.PostArticleResponseDto;
 import com.hufs.ice_back.dto.response.ResponseDto;
 import com.hufs.ice_back.entity.ArticleEntity;
+import com.hufs.ice_back.entity.PositionEntity;
 import com.hufs.ice_back.repository.ArticleRepository;
+import com.hufs.ice_back.repository.PositionRepository;
 import com.hufs.ice_back.repository.UserRepository;
 import com.hufs.ice_back.service.ArticleService;
 
@@ -24,6 +21,7 @@ public class ArticleServiceImplement implements ArticleService {
 
     private final ArticleRepository articleRepository;
     private final UserRepository userRepository;
+    private final PositionRepository positionRepository;
 
     @Override
     public ResponseEntity<? super PostArticleResponseDto> postArticle(PostArticleRequestDto dto, String email){
@@ -33,10 +31,15 @@ public class ArticleServiceImplement implements ArticleService {
             if (!existedEmail) return PostArticleResponseDto.notExistUser();
             ArticleEntity articleEntity = new ArticleEntity(dto, email);
             articleRepository.save(articleEntity);
+            PositionEntity postitionEntity = new PositionEntity(dto, articleEntity.getArticleNum());
+            positionRepository.save(postitionEntity);
+
         }catch (Exception exception){
             exception.printStackTrace();
             return ResponseDto.databaseError();
         }
         return PostArticleResponseDto.success();
     }
+
+
 }

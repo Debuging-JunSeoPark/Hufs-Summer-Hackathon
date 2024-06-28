@@ -1,7 +1,5 @@
 package com.hufs.ice_back.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column; //최근 버전에서는 import jakarta.persistence.~
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,34 +43,7 @@ public class ArticleEntity {
     private String local;
 
     @Column(name = "time")
-    private LocalDateTime time;
-
-    @Column(name = "shortstop")
-    private String shortstop;
-
-    @Column(name = "first_base")
-    private String firstBase;
-
-    @Column(name = "catcher")
-    private String catcher;
-
-    @Column(name = "left_fielder")
-    private String leftFielder;
-
-    @Column(name = "center_fielder")
-    private String centerFielder;
-
-    @Column(name = "right_fielder")
-    private String rightFielder;
-
-    @Column(name = "pitcher")
-    private String pitcher;
-
-    @Column(name = "second_base")
-    private String secondBase;
-
-    @Column(name = "third_base")
-    private String thirdBase;
+    private String time;
 
     public ArticleEntity(PostArticleRequestDto dto, String email) {
         this.userEmail = email;
@@ -81,14 +52,5 @@ public class ArticleEntity {
         this.credit = dto.getCredit();
         this.local = dto.getLocal();
         this.time = dto.getTime();
-        this.shortstop = dto.getShortstop();
-        this.firstBase = dto.getFirstBase();
-        this.catcher = dto.getCatcher();
-        this.leftFielder = dto.getLeftFielder();
-        this.centerFielder = dto.getCenterFielder();
-        this.rightFielder = dto.getRightFielder();
-        this.pitcher = dto.getPitcher();
-        this.secondBase = dto.getSecondBase();
-        this.thirdBase = dto.getThirdBase();
     }
 }

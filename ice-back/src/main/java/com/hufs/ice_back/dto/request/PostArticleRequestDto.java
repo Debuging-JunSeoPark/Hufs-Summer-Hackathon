@@ -1,7 +1,6 @@
 package com.hufs.ice_back.dto.request;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +22,7 @@ public class PostArticleRequestDto {
     private String local;
 
     @NotBlank
-    private LocalDateTime time;
+    private String time;
 
     // position
     private String shortstop;
