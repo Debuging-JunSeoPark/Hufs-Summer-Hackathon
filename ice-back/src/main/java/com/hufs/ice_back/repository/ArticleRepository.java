@@ -10,5 +10,6 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, Integer>
     
     boolean existsByArticleNum(Integer articleNum); // 정확한 필드 이름을 사용
     ArticleEntity findByArticleNum(Integer articleNum);   // 정확한 필드 이름을 사용
+    
 
 }

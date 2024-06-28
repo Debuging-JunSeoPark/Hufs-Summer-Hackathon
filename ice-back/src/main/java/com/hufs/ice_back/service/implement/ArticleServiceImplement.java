@@ -1,9 +1,11 @@
 package com.hufs.ice_back.service.implement;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.hufs.ice_back.dto.request.PostArticleRequestDto;
+import com.hufs.ice_back.dto.response.GetArticleListResponseDto;
 import com.hufs.ice_back.dto.response.GetArticleResponseDto;
 import com.hufs.ice_back.dto.response.PostArticleResponseDto;
 import com.hufs.ice_back.dto.response.ResponseDto;
@@ -58,4 +60,16 @@ public class ArticleServiceImplement implements ArticleService {
             }
             return GetArticleResponseDto.success(articleEntity, positionEntity);
         }
+
+    @Override
+    public ResponseEntity<? super GetArticleListResponseDto> getArticleList() {
+        List<ArticleEntity> articleEntities;
+        try {
+            articleEntities = articleRepository.findAll();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+        return GetArticleListResponseDto.success(articleEntities, positionRepository);
+    }
 }

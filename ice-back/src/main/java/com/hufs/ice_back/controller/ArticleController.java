@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hufs.ice_back.dto.request.PostArticleRequestDto;
 import com.hufs.ice_back.service.ArticleService;
 import com.hufs.ice_back.dto.response.PostArticleResponseDto;
+import com.hufs.ice_back.dto.response.GetArticleListResponseDto;
 import com.hufs.ice_back.dto.response.GetArticleResponseDto;
 
 import lombok.RequiredArgsConstructor;
@@ -42,5 +43,10 @@ public class ArticleController {
         return response;
     }
 
+    @GetMapping("/list")
+    public ResponseEntity<? super GetArticleListResponseDto> getArticleList(){
+        ResponseEntity<? super GetArticleListResponseDto> response = articleService.getArticleList();
+        return response;
+    }
 }
 
