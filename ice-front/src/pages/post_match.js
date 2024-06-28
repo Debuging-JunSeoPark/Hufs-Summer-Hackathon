@@ -1,12 +1,13 @@
 import * as React from 'react';
 import Header from '../components/Header';
+import Area from '../utils/regions';
 
 const PostMatch = () => {
   return (
     <div className="flex flex-col justify-center w-screen h-screen bg-white overflow-hidden ml-[calc(50%_-_50vw)]">
       <div className="flex flex-col w-full max-md:max-w-full h-full">
         <Header />
-        <div className="mt-1.5 w-full max-md:max-w-full flex-1 overflow-auto">
+        <form className="mt-1.5 w-full max-md:max-w-full flex-1 overflow-auto">
           <div className="flex gap-5 max-md:flex-col max-md:gap-0 h-full">
             <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full h-full overflow-auto">
               <div className="flex flex-col grow py-20 pr-4 pl-9 w-full text-xl font-bold leading-8 text-black bg-white max-md:pl-5 max-md:mt-10 max-md:max-w-full">
@@ -18,9 +19,7 @@ const PostMatch = () => {
                   인원을 배치하고, 필요한 포지션을 지정할 수 있습니다. <br />
                   원하는 옵션을 선택하여 매치를 만들어 보세요.
                 </div>
-                <div className="justify-center items-center px-4 py-2.5 mt-12 text-sm leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                  지역 선택 &gt;
-                </div>
+                <Area></Area>
                 <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 text-slate-700 max-md:flex-wrap max-md:max-w-full">
                   <div className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 max-md:px-5">
                     날짜
@@ -42,15 +41,22 @@ const PostMatch = () => {
                   />
                 </div>
                 <div className="mt-9 max-md:max-w-full">제목</div>
-                <input className="shrink-0 mt-3.5 rounded-xl bg-zinc-300 h-[54px] max-md:max-w-full" />
+                <input
+                  id="title"
+                  className="shrink-0 mt-3.5 rounded-xl bg-zinc-300 h-[54px] max-md:max-w-full"
+                />
                 <div className="mt-9 max-md:max-w-full">
                   내용(경기 유의 사항)
                 </div>
-                <textarea className="shrink-0 mt-3 rounded-xl bg-zinc-300 h-[199px] max-md:max-w-full" />
+                <textarea
+                  id="context"
+                  className="shrink-0 mt-3 rounded-xl bg-zinc-300 h-[199px] max-md:max-w-full"
+                />
                 <div className="self-start mt-9 ml-3.5 max-md:ml-2.5">
                   참여 비용 (원)
                 </div>
                 <input
+                  id="credit"
                   type="number"
                   className="shrink-0 mt-3.5 rounded-xl bg-zinc-300 h-[52px] max-md:max-w-full"
                 />
@@ -183,7 +189,7 @@ const PostMatch = () => {
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
