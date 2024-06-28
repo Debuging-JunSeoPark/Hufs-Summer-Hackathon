@@ -66,7 +66,11 @@ const SignUp = () => {
             </select>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className="bg-gray-100 shadow-inner focus:outline-none border-2 focus:border-opacity-50 focus:border-green-600 mb-3 py-3 px-5 rounded-lg" />
             <input type="number" value={age} onChange={(e) => setAge(e.target.value)} placeholder="Age" className="bg-gray-100 shadow-inner focus:outline-none border-2 focus:border-opacity-50 focus:border-green-600 mb-3 py-3 px-5 rounded-lg" />
-            <input type="text" value={sex} onChange={(e) => setSex(e.target.value)} placeholder="Sex" className="bg-gray-100 shadow-inner focus:outline-none border-2 focus:border-opacity-50 focus:border-green-600 mb-3 py-3 px-5 rounded-lg" />
+            <select value={sex} onChange={(e) => setSex(e.target.value)} className="bg-gray-100 shadow-inner focus:outline-none border-2 focus:border-opacity-50 focus:border-green-600 mb-3 py-3 px-5 rounded-lg">
+              <option value="없음">Select Sex</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
             <input type="text" value={team} onChange={(e) => setTeam(e.target.value)} placeholder="Team (if applicable)" className="bg-gray-100 shadow-inner focus:outline-none border-2 focus:border-opacity-50 focus:border-green-600 mb-3 py-3 px-5 rounded-lg" />
             <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} placeholder="Height" className="bg-gray-100 shadow-inner focus:outline-none border-2 focus:border-opacity-50 focus:border-green-600 mb-3 py-3 px-5 rounded-lg" />
             <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="Weight" className="bg-gray-100 shadow-inner focus:outline-none border-2 focus:border-opacity-50 focus:border-green-600 mb-3 py-3 px-5 rounded-lg" />

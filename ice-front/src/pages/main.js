@@ -6,11 +6,15 @@ function Main() {
     <div className="flex flex-col items-center px-5 pb-20 w-full bg-gradient-to-b from-slate-100 to-slate-400 max-md:max-w-full">
       <Header></Header>
       <div className="mt-10 text-6xl font-semibold tracking-tighter text-center leading-[72px] text-slate-900 w-[860px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ">
-        Take your team management to next level
+      ICE is offering you a revolution with 'sportlight' services.
       </div>
       <div className="mt-6 text-lg leading-7 text-center text-slate-600 w-[640px] max-md:max-w-full">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout.
+      Make sure to match teams quickly and accurately with sportslight.
+  
+      </div>
+      <div className="mt-6 text-lg leading-7 text-center text-slate-600 w-[640px] max-md:max-w-full">
+     
+     ICE hope you turn your busy life into a healthy and fun life through sportslignt
       </div>
       <div className="mt-10 mb-3.5 w-full max-w-[1480px] max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-10 max-md:flex-col max-md:gap-0">
