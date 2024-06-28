@@ -27,9 +27,11 @@ function Main() {
                 <br />
                 경기 일정을 한눈에 볼 수 있습니다.
               </div>
-              <div className="justify-center px-6 py-4 mt-16 text-2xl font-semibold leading-6 text-white bg-indigo-500 rounded-3xl max-md:px-5 max-md:mt-10">
-                전체 경기 조회
-              </div>
+              <Link to={'/wholelist'}>
+                <div className="justify-center px-6 py-4 mt-16 text-2xl font-semibold leading-6 text-white bg-indigo-500 rounded-3xl max-md:px-5 max-md:mt-10">
+                  전체 경기 조회
+                </div>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
