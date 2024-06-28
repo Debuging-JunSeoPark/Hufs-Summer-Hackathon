@@ -1,15 +1,21 @@
 package com.hufs.ice_back.service.implement;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.hufs.ice_back.common.CertificationNumber;
 import com.hufs.ice_back.dto.request.CheckCertificationRequestDto;
 import com.hufs.ice_back.dto.request.EmailCertificationRequestDto;
+import com.hufs.ice_back.dto.request.GetUserListRequestDto;
 import com.hufs.ice_back.dto.request.SignInRequestDto;
 import com.hufs.ice_back.dto.request.SignUpRequestDto;
 import com.hufs.ice_back.dto.response.CheckCertificationResponseDto;
 import com.hufs.ice_back.dto.response.EmailCertificationResponseDto;
+import com.hufs.ice_back.dto.response.GetUserListResposeDto;
 import com.hufs.ice_back.dto.response.ResponseDto;
 import com.hufs.ice_back.dto.response.SignInResponseDto;
 import com.hufs.ice_back.dto.response.SignUpResponseDto;
@@ -157,6 +163,29 @@ public class AuthServiceImplement implements AuthService {
             return ResponseDto.databaseError();
         }
         return CheckCertificationResponseDto.success();
+    }
+
+    @Override
+    public ResponseEntity<? super GetUserListResposeDto> getUserList(GetUserListRequestDto dto) {
+
+
+            List<UserEntity> userListEntities = new ArrayList<>();
+            String name = dto.getName();
+
+        try{
+
+            boolean existedUser = userRepository.existsByName(name);
+            if (!existedUser) return GetUserListResposeDto.noExistUser();
+
+            userListEntities = userRepository.findByName(name);
+
+            
+
+        }catch(Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+        return GetUserListResposeDto.success(userListEntities);
     }
 
 
