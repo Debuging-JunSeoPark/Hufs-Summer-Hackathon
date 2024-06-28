@@ -19,7 +19,7 @@ const Matchup = () => {
       <div className="mt-1.5 w-full max-md:pr-5 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
           <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow pt-20 pb-7 w-full bg-white max-md:mt-10 max-md:max-w-full bg-gradient-to-b from-slate-100 to-slate-300">
+            <div className="flex flex-col grow pt-20 pb-7 w-full  max-md:mt-10 max-md:max-w-full bg-gradient-to-b from-slate-100 to-slate-400 ">
               <div
                 className="flex flex-col pr-4 pl-9 max-md:pl-5 max-md:max-w-full"
                 id="filter_list"
@@ -68,7 +68,7 @@ const Matchup = () => {
                 </button>
               </div>
               <Link to={'/matchup_result'}>
-                <div className="justify-center items-center self-center px-4 py-2.5 mt-20 ml-2.5 max-w-full text-2xl font-bold leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 w-[426px] max-md:px-5 max-md:mt-10">
+                <div className="justify-center items-center self-center px-4 py-2.5 mt-20 ml-2.5 max-w-full text-2xl font-bold leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-lime-100 text-slate-700 w-[426px] max-md:px-5 max-md:mt-10">
                   맞춤 검색 &gt;
                 </div>
               </Link>

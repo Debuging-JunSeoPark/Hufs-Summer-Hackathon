@@ -294,7 +294,7 @@ const regions = [
   },
 ];
 
-const Area = () => {
+const Area = (props) => {
   const [selectedArea, setSelectedArea] = useState('');
   const [selectedSubArea, setSelectedSubArea] = useState('');
 
@@ -304,17 +304,18 @@ const Area = () => {
 
   const handleSubAreaChange = (event) => {
     setSelectedSubArea(event.target.value);
+    props.local = selectedArea.concat("-",selectedSubArea)
   };
 
   const subAreas =
     regions.find((area) => area.name === selectedArea)?.subArea || [];
 
   return (
-    <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 bg-white text-slate-700 max-md:flex-wrap max-md:max-w-full">
+    <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 text-slate-700 max-md:flex-wrap max-md:max-w-full">
       <select
         value={selectedArea}
         onChange={handleAreaChange}
-        className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 max-md:px-5"
+        className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white max-md:px-5"
       >
         <option value="">지역을 선택해주세요</option>
         {regions.map((area) => (
@@ -327,7 +328,7 @@ const Area = () => {
         <select
           value={selectedSubArea}
           onChange={handleSubAreaChange}
-          className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 max-md:px-5"
+          className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white max-md:px-5"
         >
           <option value="">시,군,구를 선택해주세요</option>
           {subAreas.map((subArea) => (
