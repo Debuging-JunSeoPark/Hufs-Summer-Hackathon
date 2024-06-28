@@ -1,9 +1,12 @@
 package com.hufs.ice_back.service.implement;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.hufs.ice_back.dto.request.PostArticleRequestDto;
+import com.hufs.ice_back.dto.response.GetArticleListResponseDto;
+import com.hufs.ice_back.dto.response.GetArticleResponseDto;
 import com.hufs.ice_back.dto.response.PostArticleResponseDto;
 import com.hufs.ice_back.dto.response.ResponseDto;
 import com.hufs.ice_back.entity.ArticleEntity;
@@ -22,6 +25,7 @@ public class ArticleServiceImplement implements ArticleService {
     private final ArticleRepository articleRepository;
     private final UserRepository userRepository;
     private final PositionRepository positionRepository;
+    
 
     @Override
     public ResponseEntity<? super PostArticleResponseDto> postArticle(PostArticleRequestDto dto, String email){
@@ -41,5 +45,31 @@ public class ArticleServiceImplement implements ArticleService {
         return PostArticleResponseDto.success();
     }
 
+    @Override
+        public ResponseEntity<? super GetArticleResponseDto> getArticle(Integer articleNum) {
+            ArticleEntity articleEntity = null;
+            PositionEntity positionEntity = null;
 
+            try {
+                articleEntity = articleRepository.findByArticleNum(articleNum);
+                positionEntity = positionRepository.findByArticleNum(articleNum);
+                if (articleEntity == null) return GetArticleResponseDto.noExistArticle();
+            } catch (Exception exception){
+                exception.printStackTrace();
+                return ResponseDto.databaseError();
+            }
+            return GetArticleResponseDto.success(articleEntity, positionEntity);
+        }
+
+    @Override
+    public ResponseEntity<? super GetArticleListResponseDto> getArticleList() {
+        List<ArticleEntity> articleEntities;
+        try {
+            articleEntities = articleRepository.findAll();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+        return GetArticleListResponseDto.success(articleEntities, positionRepository);
+    }
 }
