@@ -51,6 +51,7 @@ public class UserEntity {
     private String weight;
 
     public UserEntity(SignUpRequestDto dto) {
+        
         this.email = dto.getEmail();
         this.password = dto.getPassword();
         this.career = dto.getCareer();
