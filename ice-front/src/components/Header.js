@@ -18,9 +18,11 @@ const Header = () => {
             Sign In
           </div>
         </Link>
-        <div className="justify-center px-4 py-3.5 text-white bg-gradient-to-r from-cyan-600 to-blue-800 border-cyan-300 border-solid border-[3px] rounded-[60px] max-md:px-5">
-          Sign Up
-        </div>
+        <Link to={'/signup'}>
+          <div className="justify-center px-4 py-3.5 text-white bg-gradient-to-r from-cyan-600 to-blue-800 border-cyan-300 border-solid border-[3px] rounded-[60px] max-md:px-5">
+            Sign Up
+          </div>
+        </Link>
       </div>
     </div>
   );

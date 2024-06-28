@@ -7,6 +7,7 @@ import Matchup from './pages/matchup.js';
 import MatchupResult from './pages/matchup_result.js';
 import PostMatch from './pages/post_match.js';
 import Login from './pages/login.js';
+import SignUp from './pages/signup.js';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/matchup_result" element={<MatchupResult />}></Route>
           <Route path="/post_match" element={<PostMatch />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
