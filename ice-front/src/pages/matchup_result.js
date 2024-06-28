@@ -8,7 +8,7 @@ function MatchupResult() {
       <div className="w-full max-md:pr-5 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
           <div className="flex flex-col w-[34%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow px-10 pt-20 pb-4 w-full font-bold text-black bg-white max-md:px-5 max-md:mt-10 max-md:max-w-full">
+            <div className="flex flex-col grow px-10 pt-20 pb-4 w-full font-bold text-black bg-gradient-to-b from-slate-100 to-slate-400 max-md:px-5 max-md:mt-10 max-md:max-w-full">
               <div className="text-5xl font-semibold leading-6 max-md:text-4xl">
                 매치업
               </div>
