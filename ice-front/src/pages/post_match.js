@@ -1,27 +1,27 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Header from '../components/Header';
-import Area, {selectedArea} from '../utils/regions';
+import Area from '../utils/regions';
 import { searchNameRequest, postArticleRequest } from '../apis';
 
 const PostMatch = () => {
   const [name, setName] = useState('');
   const [response, setResponse] = useState(null);
-  const [articleTitle, setArticleTitle] = useState('')
-  const [articleContent, setArticleContent] = useState('')
-  const [credit, setCredit] = useState('')
-  const [local, setLocal] = useState('')
-  const [date, setDate] = useState('')
-  const [time, setTime] = useState('')
-  const [shortstop, setShortstop] = useState('')
-  const [firstBase, setFirstbase] = useState('')
-  const [catcher, setCatcher] = useState('')
-  const [leftFielder, setLeftfielder] = useState('')
-  const [centerFielder, setCenterFielder] = useState('')
-  const [rightFielder, setRightFielder] = useState('')
-  const [pitcher, setPitcher] = useState('')
-  const [secondBase, setSecondBase] = useState('')
-  const [thirdBase, setThirdBase] = useState('')
+  const [articleTitle, setArticleTitle] = useState('');
+  const [articleContent, setArticleContent] = useState('');
+  const [credit, setCredit] = useState('');
+  const [local] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [shortstop, setShortstop] = useState('');
+  const [firstBase, setFirstbase] = useState('');
+  const [catcher, setCatcher] = useState('');
+  const [leftFielder, setLeftfielder] = useState('');
+  const [centerFielder, setCenterFielder] = useState('');
+  const [rightFielder, setRightFielder] = useState('');
+  const [pitcher, setPitcher] = useState('');
+  const [secondBase, setSecondBase] = useState('');
+  const [thirdBase, setThirdBase] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,21 +33,23 @@ const PostMatch = () => {
     setResponse(res);
     if (res && res.code === 'SU') {
       console.log('선수 정보 조회 성공'); // 성공 메시지
-      document.getElementById("namelist").innerHTML = response.articleList.map((article) => (
-        <div className="max-md:pr-5 max-md:max-w-full mt-20 max-md:mt-10">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow items-end py-3 pr-4 pl-20 w-full text-xs font-bold leading-5 text-black bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pl-5 max-md:mt-10">
-                <div>{article.email}</div>
-                <div className="self-start mt-7 ml-3.5 text-2xl leading-5 max-md:ml-2.5">
-                  {article.name}
+      document.getElementById('namelist').innerHTML = response.articleList.map(
+        (article) => (
+          <div className="max-md:pr-5 max-md:max-w-full mt-20 max-md:mt-10">
+            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+              <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full">
+                <div className="flex flex-col grow items-end py-3 pr-4 pl-20 w-full text-xs font-bold leading-5 text-black bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pl-5 max-md:mt-10">
+                  <div>{article.email}</div>
+                  <div className="self-start mt-7 ml-3.5 text-2xl leading-5 max-md:ml-2.5">
+                    {article.name}
+                  </div>
+                  <div className="mt-8">{article.age}</div>
                 </div>
-                <div className="mt-8">{article.age}</div>
               </div>
             </div>
           </div>
-        </div>
-      ))
+        )
+      );
     } else {
       // 실패 메시지를 response.message를 기반으로 보여줌
       alert('선수 정보 조회 실패: ' + (res.message || '서버 오류'));
@@ -69,7 +71,7 @@ const PostMatch = () => {
       rightFielder,
       pitcher,
       secondBase,
-      thirdBase
+      thirdBase,
     };
 
     const res = await postArticleRequest(requestBody);
@@ -82,12 +84,14 @@ const PostMatch = () => {
     }
   };
 
-
   return (
     <div className="flex flex-col justify-center w-screen h-screen bg-white overflow-hidden ml-[calc(50%_-_50vw)]">
       <div className="flex flex-col w-full max-md:max-w-full h-full">
         <Header />
-        <form className="mt-1.5 w-full max-md:max-w-full flex-1 overflow-auto" onSubmit={handleSubmit2}>
+        <form
+          className="mt-1.5 w-full max-md:max-w-full flex-1 overflow-auto"
+          onSubmit={handleSubmit2}
+        >
           <div className="flex gap-5 max-md:flex-col max-md:gap-0 h-full">
             <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full h-full overflow-auto">
               <div className="flex flex-col grow py-20 pr-4 pl-9 w-full text-xl font-bold leading-8 text-black bg-white max-md:pl-5 max-md:mt-10 max-md:max-w-full">
@@ -151,7 +155,10 @@ const PostMatch = () => {
                   className="shrink-0 mt-3.5 rounded-xl bg-zinc-300 h-[52px] max-md:max-w-full"
                 />
               </div>
-              <button type='submit' className="justify-center items-center px-4 py-2.5 mt-4 text-2xl leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-lime-400 text-slate-700 max-md:px-5">
+              <button
+                type="submit"
+                className="justify-center items-center px-4 py-2.5 mt-4 text-2xl leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-lime-400 text-slate-700 max-md:px-5"
+              >
                 경기 등록 &gt;
               </button>
             </div>
@@ -176,26 +183,41 @@ const PostMatch = () => {
                               <div className="flex flex-col w-[39%] max-md:ml-0 max-md:w-full">
                                 <div className="flex flex-col grow mt-28 max-md:mt-10">
                                   <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
-                                    <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                      +
-                                    </button>
+                                    <input
+                                      type="checkbox"
+                                      value={leftFielder}
+                                      onChange={(e) =>
+                                        setLeftfielder(e.target.value)
+                                      }
+                                      className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                    ></input>
                                   </div>
                                   <div className="mt-2.5 text-xl font-semibold leading-6 text-black">
                                     좌익수
                                   </div>
                                   <div className="flex flex-col items-start pl-20 mt-12 max-md:pl-5 max-md:mt-10">
                                     <div className="flex justify-center items-center self-end px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
-                                      <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                        +
-                                      </button>
+                                      <input
+                                        type="checkbox"
+                                        value={shortstop}
+                                        onChange={(e) =>
+                                          setShortstop(e.target.value)
+                                        }
+                                        className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                      ></input>
                                     </div>
                                     <div className="mt-2.5 text-xl font-semibold leading-6 text-black">
                                       유격수
                                     </div>
                                     <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
-                                      <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                        +
-                                      </button>
+                                      <input
+                                        type="checkbox"
+                                        value={thirdBase}
+                                        onChange={(e) =>
+                                          setThirdBase(e.target.value)
+                                        }
+                                        className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                      ></input>
                                     </div>
                                     <div className="mt-2.5 text-xl font-semibold leading-6 text-black">
                                       3루수
@@ -206,27 +228,42 @@ const PostMatch = () => {
                               <div className="flex flex-col ml-5 w-[61%] max-md:ml-0 max-md:w-full">
                                 <div className="flex flex-col grow max-md:mt-10">
                                   <div className="flex justify-center items-center px-2 ml-3.5 bg-gray-100 rounded-2xl h-[37px] w-[37px] max-md:ml-2.5">
-                                    <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                      +
-                                    </button>
+                                    <input
+                                      type="checkbox"
+                                      value={centerFielder}
+                                      onChange={(e) =>
+                                        setCenterFielder(e.target.value)
+                                      }
+                                      className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                    ></input>
                                   </div>
                                   <div className="mt-3 text-xl font-semibold leading-6 text-black">
                                     중견수
                                   </div>
                                   <div className="flex flex-col self-end mt-12 w-[54px] max-md:mt-10">
                                     <div className="flex justify-center items-center px-2 mt-5 ml-2.5 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
-                                      <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                        +
-                                      </button>
+                                      <input
+                                        type="checkbox"
+                                        value={rightFielder}
+                                        onChange={(e) =>
+                                          setRightFielder(e.target.value)
+                                        }
+                                        className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                      ></input>
                                     </div>
                                     <div className="mt-2 text-xl font-semibold leading-6 text-black">
                                       우익수
                                     </div>
                                   </div>
                                   <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
-                                    <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                      +
-                                    </button>
+                                    <input
+                                      type="checkbox"
+                                      value={secondBase}
+                                      onChange={(e) =>
+                                        setSecondBase(e.target.value)
+                                      }
+                                      className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                    ></input>
                                   </div>
                                   <div className="mt-1.5 text-xl font-semibold leading-6 text-black">
                                     2루수
@@ -234,9 +271,14 @@ const PostMatch = () => {
                                   <div className="flex gap-5 mt-16 max-md:pr-5 max-md:mt-10">
                                     <div className="flex flex-col flex-1">
                                       <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
-                                        <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                          +
-                                        </button>
+                                        <input
+                                          type="checkbox"
+                                          value={pitcher}
+                                          onChange={(e) =>
+                                            setPitcher(e.target.value)
+                                          }
+                                          className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                        ></input>
                                       </div>
                                       <div className="mt-4 text-xl font-semibold leading-6 text-black">
                                         투수
@@ -244,9 +286,14 @@ const PostMatch = () => {
                                     </div>
                                     <div className="flex flex-col flex-1 self-start mt-1.5">
                                       <div className="flex justify-center items-center px-2 bg-gray-100 rounded-2xl h-[37px] w-[37px]">
-                                        <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5">
-                                          +
-                                        </button>
+                                        <input
+                                          type="checkbox"
+                                          value={firstBase}
+                                          onChange={(e) =>
+                                            setFirstbase(e.target.value)
+                                          }
+                                          className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                                        ></input>
                                       </div>
                                       <div className="mt-2.5 text-xl font-semibold leading-6 text-black">
                                         1루수
@@ -257,7 +304,12 @@ const PostMatch = () => {
                               </div>
                             </div>
                           </div>
-                          <button className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"></button>
+                          <input
+                            type="checkbox"
+                            value={catcher}
+                            onChange={(e) => setCatcher(e.target.value)}
+                            className="justify-center self-end p-6 mt-8 mr-8 text-sm font-medium leading-5 text-black whitespace-nowrap bg-white rounded-xl border border-black border-solid max-md:px-5 max-md:mr-2.5"
+                          ></input>
                           <div className="self-center mt-32 text-xl font-semibold leading-6 text-black max-md:mt-10">
                             포수
                           </div>
@@ -274,7 +326,7 @@ const PostMatch = () => {
                         className="shrink-0 mx-auto mt-4 max-w-full rounded-xl bg-neutral-200 h-[54px] w-[385px] max-md:mt-10"
                       />
                     </form>
-                    <div id="namelist"/>
+                    <div id="namelist" />
                   </div>
                 </div>
                 <div className="self-start mt-10 ml-11 text-4xl font-bold leading-8 text-center text-gray-600 max-md:max-w-full">
