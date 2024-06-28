@@ -50,7 +50,7 @@ function MatchupResult() {
                 </div>
               </div>
               <div className="justify-center items-center px-4 py-2.5 mt-4 text-2xl leading-5 rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 text-slate-700 max-md:px-5">
-                맞춤 검색 &gt;
+                검색으로 돌아가기 &gt;
               </div>
             </div>
           </div>
