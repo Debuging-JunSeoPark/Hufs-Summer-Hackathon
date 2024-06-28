@@ -24,6 +24,7 @@ import com.hufs.ice_back.entity.UserEntity;
 import com.hufs.ice_back.provider.EmailProvider;
 import com.hufs.ice_back.provider.JwtProvider;
 import com.hufs.ice_back.repository.CertificationRepository;
+import com.hufs.ice_back.repository.UserListRepository;
 import com.hufs.ice_back.repository.UserRepository;
 import com.hufs.ice_back.service.AuthService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -39,6 +40,7 @@ public class AuthServiceImplement implements AuthService {
     private final JwtProvider jwtProvider;
     private final CertificationRepository certificationRepository;
     private final EmailProvider emailProvider;
+    private final UserListRepository userListRepository;
    
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -167,20 +169,13 @@ public class AuthServiceImplement implements AuthService {
 
     @Override
     public ResponseEntity<? super GetUserListResposeDto> getUserList(GetUserListRequestDto dto) {
-
-
-            List<UserEntity> userListEntities = new ArrayList<>();
-            String name = dto.getName();
-
+        List<UserEntity> userListEntities = new ArrayList<>();
+        String name = dto.getName();
         try{
 
             boolean existedUser = userRepository.existsByName(name);
             if (!existedUser) return GetUserListResposeDto.noExistUser();
-
-            userListEntities = userRepository.findByName(name);
-
-            
-
+            userListEntities = userListRepository.findByNameOrderByAgeDesc(name);
         }catch(Exception exception) {
             exception.printStackTrace();
             return ResponseDto.databaseError();
