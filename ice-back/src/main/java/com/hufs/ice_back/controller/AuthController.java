@@ -1,5 +1,7 @@
 package com.hufs.ice_back.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +13,7 @@ import com.hufs.ice_back.dto.response.SignUpResponseDto;
 import com.hufs.ice_back.service.AuthService;
 
 
-import jakarta.validation.Valid;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
