@@ -10,7 +10,7 @@ const PostMatch = () => {
   const [articleTitle, setArticleTitle] = useState('');
   const [articleContent, setArticleContent] = useState('');
   const [credit, setCredit] = useState('');
-  const [local] = useState('');
+  const [local, setLocal] = useState(''); 
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [shortstop, setShortstop] = useState('');
@@ -103,7 +103,7 @@ const PostMatch = () => {
                   인원을 배치하고, 필요한 포지션을 지정할 수 있습니다. <br />
                   원하는 옵션을 선택하여 매치를 만들어 보세요.
                 </div>
-                <Area local={local}></Area>
+                <Area local={local} setLocal={setLocal} />
                 <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 text-slate-700 max-md:flex-wrap max-md:max-w-full">
                   <div className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 max-md:px-5">
                     날짜

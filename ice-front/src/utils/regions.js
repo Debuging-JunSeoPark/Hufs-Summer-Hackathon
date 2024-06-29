@@ -294,21 +294,23 @@ const regions = [
   },
 ];
 
-const Area = (props) => {
+const Area = ({ local, setLocal }) => {
   const [selectedArea, setSelectedArea] = useState('');
   const [selectedSubArea, setSelectedSubArea] = useState('');
 
   const handleAreaChange = (event) => {
     setSelectedArea(event.target.value);
+    if (selectedSubArea) {
+      setLocal(event.target.value + "-" + selectedSubArea);
+    }
   };
 
   const handleSubAreaChange = (event) => {
     setSelectedSubArea(event.target.value);
-    props.local = selectedArea.concat("-",selectedSubArea)
+    setLocal(selectedArea + "-" + event.target.value);
   };
 
-  const subAreas =
-    regions.find((area) => area.name === selectedArea)?.subArea || [];
+  const subAreas = regions.find((area) => area.name === selectedArea)?.subArea || [];
 
   return (
     <div className="flex gap-5 justify-between mt-8 text-sm font-bold leading-5 text-slate-700 max-md:flex-wrap max-md:max-w-full">
