@@ -294,17 +294,20 @@ const regions = [
   },
 ];
 
-const Area = (props) => {
+const Area = () => {
   const [selectedArea, setSelectedArea] = useState('');
   const [selectedSubArea, setSelectedSubArea] = useState('');
 
   const handleAreaChange = (event) => {
     setSelectedArea(event.target.value);
+    if (selectedSubArea) {
+      // setLocal(event.target.value + '-' + selectedSubArea);
+    }
   };
 
   const handleSubAreaChange = (event) => {
     setSelectedSubArea(event.target.value);
-    props.local = selectedArea.concat("-",selectedSubArea)
+    // setLocal(selectedArea + '-' + event.target.value);
   };
 
   const subAreas =

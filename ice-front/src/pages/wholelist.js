@@ -2,26 +2,57 @@ import * as React from 'react';
 import Header from '../components/Header';
 
 const games = [
-  {
-    time: 'PM 13:00',
-    title: '용병 모집 합니다.',
-    location: '강서구. 어디구장',
-  },
-  {
-    time: 'PM 13:00',
-    title: '용병 모집 합니다.',
-    location: '강서구. 어디구장',
-  },
-  {
-    time: 'PM 13:00',
-    title: '용병 모집 합니다.',
-    location: '강서구. 어디구장',
-  },
-  {
-    time: 'PM 13:00',
-    title: '용병 모집 합니다.',
-    location: '강서구. 어디구장',
-  },
+  [
+    {
+      time: 'AM 09:00',
+      title: '김포시 EA구장',
+      location: '경기도-김포시',
+    },
+    {
+      time: 'PM 07:00',
+      title: '용인 에버구장',
+      location: '경기도 용인시',
+    },
+    {
+      time: 'AM 07:00',
+      title: '파주공원 야구장',
+      location: '경기도-파주시',
+    },
+  ],
+  [
+    {
+      time: 'PM 18:00',
+      title: '서울시 은평구장',
+      location: '서울시-은평구',
+    },
+    {
+      time: 'PM 12:00',
+      title: '양주시 ND구장',
+      location: '경기도-양주시',
+    },
+    {
+      time: 'AM 08:00',
+      title: 'HS고촌구장',
+      location: '경기도-김포시',
+    },
+  ],
+  [
+    {
+      time: 'PM 16:00',
+      title: '김포고촌 제일구장',
+      location: '경기도-김포시',
+    },
+    {
+      time: 'PM 14:00',
+      title: '서울시 은평구장',
+      location: '서울시-은평구',
+    },
+    {
+      time: 'AM 09:00',
+      title: '김포시 EA구장',
+      location: '경기도-김포시',
+    },
+  ],
 ];
 
 const WholeList = () => {
@@ -54,29 +85,29 @@ const WholeList = () => {
                     <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                       <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col grow items-end py-3 pr-4 pl-20 w-full text-xs font-bold leading-5 text-black bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pl-5 max-md:mt-10">
-                          <div>{game.time}</div>
+                          <div>{game[0].time}</div>
                           <div className="self-start mt-7 ml-3.5 text-2xl leading-5 max-md:ml-2.5">
-                            {game.title}
+                            {game[0].title}
                           </div>
-                          <div className="mt-8">{game.location}</div>
+                          <div className="mt-8">{game[0].location}</div>
                         </div>
                       </div>
                       <div className="flex flex-col ml-5 w-[30%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col grow items-end py-3 pr-4 pl-20 w-full text-xs font-bold leading-5 text-black bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pl-5 max-md:mt-10">
-                          <div>{game.time}</div>
+                          <div>{game[1].time}</div>
                           <div className="self-start mt-7 ml-3.5 text-2xl leading-5 max-md:ml-2.5">
-                            {game.title}
+                            {game[1].title}
                           </div>
-                          <div className="mt-8">{game.location}</div>
+                          <div className="mt-8">{game[1].location}</div>
                         </div>
                       </div>
                       <div className="flex flex-col ml-5 w-[30%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col grow items-end py-3 pr-4 pl-20 w-full text-xs font-bold leading-5 text-black bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pl-5 max-md:mt-10">
-                          <div>{game.time}</div>
+                          <div>{game[2].time}</div>
                           <div className="self-start mt-7 ml-3.5 text-2xl leading-5 max-md:ml-2.5">
-                            {game.title}
+                            {game[2].title}
                           </div>
-                          <div className="mt-8">{game.location}</div>
+                          <div className="mt-8">{game[2].location}</div>
                         </div>
                       </div>
                     </div>

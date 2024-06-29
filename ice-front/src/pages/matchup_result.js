@@ -19,8 +19,8 @@ function MatchupResult() {
               </div>
               <div className="flex flex-col items-end py-3 pr-4 pl-20 mt-14 text-xs leading-5 bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pl-5 max-md:mt-10">
                 <div>PM 13:00 </div>
-                <div className="mt-7 text-2xl leading-5">용병 모집 합니다.</div>
-                <div className="mt-8">강서구. 어디구장</div>
+                <div className="mt-7 text-2xl leading-5">김포고촌 제일구장</div>
+                <div className="mt-8">경기도-김포시</div>
               </div>
               <div className="flex flex-col px-9 py-16 mt-3 text-base leading-5 bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-5">
                 <div>
@@ -36,12 +36,12 @@ function MatchupResult() {
                 <div className="mt-9">
                   장소
                   <br />
-                  강서구 - 00구장
+                  김포고촌 제일구장
                 </div>
                 <div className="mt-9">
                   에상 시간
                   <br />
-                  20204-06-08 16:00:00
+                  2024-06-08 13:00:00
                 </div>
                 <div className="mt-9">
                   경기 비용

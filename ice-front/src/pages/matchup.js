@@ -3,10 +3,15 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import Area from '../utils/regions';
+import { filterArticleRequest } from '../apis';
 
 const Matchup = () => {
   const [inputs, setInputs] = useState([{ id: 1 }]);
   const [nextId, setNextId] = useState(2);
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [position, setPosition] = useState('');
+  const [local] = useState('');
 
   const addInput = () => {
     setInputs([...inputs, { id: nextId }]);
@@ -50,11 +55,15 @@ const Matchup = () => {
                       <input
                         name={`${input.id}`}
                         type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
                         className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white max-md:px-5"
                       />
                       <input
                         name={`${input.id}`}
                         type="time"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
                         className="justify-center items-center px-4 py-2.5 w-full whitespace-nowrap rounded-lg border border-gray-300 border-solid shadow-sm bg-white max-md:px-5"
                       />
                     </div>

@@ -128,7 +128,7 @@ const PostMatch = () => {
                     className="justify-center px-4 py-2.5 rounded-lg w-full border border-gray-300 border-solid shadow-sm bg-white bg-opacity-10 max-md:px-5"
                   />
                 </div>
-                <div className="mt-9 max-md:max-w-full">제목</div>
+                <div className="mt-9 max-md:max-w-full">장소</div>
                 <input
                   id="title"
                   value={articleTitle}
@@ -331,6 +331,7 @@ const PostMatch = () => {
                 </div>
                 <div className="self-start mt-10 ml-11 text-4xl font-bold leading-8 text-center text-gray-600 max-md:max-w-full">
                   포지션된 선수를 끌어다 배치 시켜주세요.
+                  <br />
                   <br />
                   비워둔 포지션의 모집글이 올라갈 예정입니다.
                 </div>
