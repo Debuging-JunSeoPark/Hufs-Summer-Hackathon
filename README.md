@@ -1,5 +1,5 @@
 
-![001](https://github.com/Debuging-JunSeoPark/Hufs-Summer-Hackathon/assets/81556800/88d945ce-b1d8-4182-bab7-30a57155ca1f)
+![KakaoTalk_Photo_2024-07-12-19-58-18](https://github.com/user-attachments/assets/ccbbf9cd-f82a-490b-8a4b-53477efe93f6)
 ![002](https://github.com/Debuging-JunSeoPark/Hufs-Summer-Hackathon/assets/81556800/2991dce4-d76c-4b96-afd2-4cd24d8a8dc6)
 ![003](https://github.com/Debuging-JunSeoPark/Hufs-Summer-Hackathon/assets/81556800/d5f053cf-c3af-4fcc-a6b1-92b93b8e3344)
 ![004](https://github.com/Debuging-JunSeoPark/Hufs-Summer-Hackathon/assets/81556800/4de9df08-3d7e-4430-8296-bc0b6011f652)
