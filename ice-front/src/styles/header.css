@@ -1,0 +1,30 @@
+.header-bar {
+    height: 70px;
+    position: relative;
+  }
+  
+  .header-bar .button-primary-with {
+    height: 52px;
+    left: 1508px;
+    position: absolute;
+    top: 9px;
+    width: 150px;
+  }
+  
+  .header-bar .img {
+    height: 52px;
+    left: 1319px;
+    position: absolute;
+    top: 9px;
+    width: 150px;
+  }
+  
+  .header-bar .logo {
+    height: 70px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 217px;
+  }
+  
